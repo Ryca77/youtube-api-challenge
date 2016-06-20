@@ -12,3 +12,7 @@ body {
 #header, #query, #search, #listings {
 	margin: 10px;
 }
+
+#query {
+	width: 75%;
+}
