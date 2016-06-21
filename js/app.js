@@ -14,7 +14,6 @@ $('#search').on('click', function() {
 	$('#next-page').show();
 });
 
-
 function getRequest (searchTerm) {
 	var params = {
 		part: 'snippet',
@@ -28,13 +27,12 @@ function getRequest (searchTerm) {
 	
 	console.log(data);
 	console.log(data.items[0].snippet.title);
+
 	var nextPage = data.nextPageToken
 	var prevPage = data.prevPageToken
-	var query = 
-		$('#next-page').on('click', function() {
-			$('#listings').append('<a href="https://www.youtube.com/results?q=dogs&pageToken=' + nextPage + '"</a>');
-		console.log(nextPage);
-		console.log(prevPage);
+	$('#next-page').on('click', function() {
+			getRequest(searchTerm);
+		$('#listings').append('<li><a class="lightbox" href="https://www.youtube.com/watch?v=' + id + '&pageToken=' + nextPage + '" target="_blank"><h3>' + title + '</h3><img src="' + image + '" width="120" height="90"></a></li>');
 	});
 
 	$.each(data.items, function(index, listings) {
@@ -42,15 +40,16 @@ function getRequest (searchTerm) {
 		var id = listings.id.videoId
 		var title = listings.snippet.title
 		var channel = listings.snippet.channelTitle
-		$('#listings').append('<li><a href="https://www.youtube.com/watch?v=' + id + '" target="_blank"><h3>' + title + '</h3><img src="' + image + '" width="120" height="90"></a></li>');
+		$('#listings').append('<li><a class="lightbox" href="https://www.youtube.com/watch?v=' + id + '" target="_blank"><h3>' + title + '</h3><img src="' + image + '" width="120" height="90"></a></li>');
 		$('#listings').append('<li><a href="https://www.youtube.com/user/' + channel + '" target="_blank">' + channel + '</a></li>');
 		$('#listings').css('list-style-type', 'none');
 		console.log(channel);
-		});
+
+
+	});
+	$('a.lightbox').YouTubePopUp();
 	});
 }
-
-jQuery('a.listings').YouTubePopUp();
 
 });
 
