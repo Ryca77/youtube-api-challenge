@@ -50,6 +50,10 @@ function getRequest (searchTerm, pageToken) {
 		$('#listings').append('<li><a href="https://www.youtube.com/user/' + channel + '" target="_blank">' + channel + '</a></li>');
 		$('#listings').css('list-style-type', 'none');
 		console.log(channel);
+	
+	//show videos in lightbox//
+	$('a.lightbox').YouTubePopUp();
+
 	});
 
 	//create next page button//
@@ -63,9 +67,6 @@ $('body').on('click', '.next', function(event) {
 	event.preventDefault();
 	getRequest($('#query').val(), $(this).data("next"));
 });
-	
-//show videos in lightbox//
-$('a.lightbox').YouTubePopUp();
 
 });
 
