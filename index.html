@@ -6,8 +6,10 @@
 	<title>YouTube Challenge</title>
 	<link rel="stylesheet" href="css/normalize.css">
 	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" href="css/YouTubePopUp.css">
 	<script src="https://code.jquery.com/jquery.min.js"></script>
 	<script src="js/app.js"></script>
+	<script src="js/YouTubePopUp.jquery.js"></script>
 </head>
 <body>
 <h1 id="header">YouTube API Challenge</h1>
@@ -15,5 +17,8 @@
 <input id="query" placeholder="YouTube"><button id="search">Search</button>
 </form>
 <div>
-<ul id="listings"></ul>
+<ul id="listings"><a class="listings"></a></ul>
 </div>
+<button id="next-page">Next Page</button>
+<div style="clear: both;"></div>
+</body>

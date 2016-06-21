@@ -10,6 +10,11 @@ $(function() {
 		});
 	});
 
+$('#search').on('click', function() {
+	$('#next-page').show();
+});
+
+
 function getRequest (searchTerm) {
 	var params = {
 		part: 'snippet',
@@ -23,7 +28,15 @@ function getRequest (searchTerm) {
 	
 	console.log(data);
 	console.log(data.items[0].snippet.title);
-	
+	var nextPage = data.nextPageToken
+	var prevPage = data.prevPageToken
+	var query = 
+		$('#next-page').on('click', function() {
+			$('#listings').append('<a href="https://www.youtube.com/results?q=dogs&pageToken=' + nextPage + '"</a>');
+		console.log(nextPage);
+		console.log(prevPage);
+	});
+
 	$.each(data.items, function(index, listings) {
 		var image = listings.snippet.thumbnails.medium.url
 		var id = listings.id.videoId
@@ -36,6 +49,8 @@ function getRequest (searchTerm) {
 		});
 	});
 }
+
+jQuery('a.listings').YouTubePopUp();
 
 });
 
