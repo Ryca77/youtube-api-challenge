@@ -15,6 +15,11 @@ $('#search').on('click', function() {
 	$('#next-page').show();
 });
 
+//scroll to the top on next page click//
+$('#next-page').click(function() {
+	$(window).scrollTop(0);
+});
+
 //api function//
 function getRequest (searchTerm, pageToken) {
 	var pageToken = pageToken || null,
